@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "perfumes": "Perfumes",
+    "about": "Nosotros",
+    "shipping": "Envíos",
+    "contact": "Contacto",
+    "buyWhatsapp": "WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "V REGIÓN DE VALPARAÍSO, CHILE",
+    "title1": "COAST",
+    "title2": "PARFUM",
+    "subtitle": "Perfumes diseñador y árabes 100% originales",
+    "badge1": "100% Originales",
+    "badge2": "V Región",
+    "badge3": "Atención Personalizada",
+    "cta1": "EXPLORAR COLECCIÓN",
+    "cta2": "COMPRAR AHORA",
+    "scroll": "SCROLL"
+  },
+  "trust": {
+    "original": "Perfumes 100% Originales",
+    "premium": "Selección Premium Curada",
+    "shipping": "Envíos V Región Valparaíso",
+    "attention": "Atención Personalizada WhatsApp",
+    "secure": "Compra Segura y Confiable"
+  },
+  "products": {
+    "eyebrow": "NUESTRA COLECCIÓN",
+    "title1": "Fragancias Que",
+    "title2": "Definen Momentos",
+    "filterAll": "Todos",
+    "filterFemale": "Para Ella",
+    "filterMale": "Para Él",
+    "filterUnisex": "Unisex",
+    "notes": "Notas Olfativas",
+    "top": "Salida",
+    "heart": "Corazón",
+    "base": "Fondo",
+    "buy": "CONSULTAR POR WHATSAPP",
+    "consult": "Consultar",
+    "featuredLabel": "Destacado",
+    "limitedLabel": "Edición Limitada",
+    "genderFemale": "Para Ella",
+    "genderMale": "Para Él",
+    "genderUnisex": "Unisex"
+  },
+  "about": {
+    "eyebrow": "NUESTRA HISTORIA",
+    "title1": "Desde Concón,",
+    "title2": "para la V Región",
+    "p1": "Somos Coast Parfum, tu perfumería premium de confianza nacida en Concón, V Región de Valparaíso. Creemos que las mejores fragancias del mundo no deberían ser un lujo inalcanzable.",
+    "p2": "Cada perfume en nuestra colección es 100% original, cuidadosamente seleccionado entre las mejores casas de diseñador y las más exclusivas perfumerías árabes. Te los llevamos hasta tu puerta en toda la región de Valparaíso.",
+    "cta": "Escríbenos por WhatsApp →",
+    "metric1label": "Originales",
+    "metric2label": "Marcas Premium",
+    "metric3label": "Valparaíso",
+    "value1title": "Autenticidad",
+    "value1text": "Solo fragancias 100% originales, garantizadas",
+    "value2title": "Curaduría Premium",
+    "value2text": "Selección cuidadosa de las mejores casas",
+    "value3title": "Envío Regional",
+    "value3text": "Llegamos a toda la V Región de Valparaíso",
+    "value4title": "Atención Personal",
+    "value4text": "Asesoría experta para encontrar tu fragancia"
+  },
+  "shipping": {
+    "eyebrow": "LOGÍSTICA",
+    "title": "ENVÍOS Y RETIRO",
+    "subtitle": "Solo para la V Región de Valparaíso",
+    "deliveryTitle": "Envío a Domicilio",
+    "deliveryText": "Despachamos a toda la V Región de Valparaíso. Llegamos a Valparaíso, Viña del Mar, Concón, Quilpué, Villa Alemana, Reñaca, Olmué, Casablanca, Quillota y más. El costo lo coordinamos contigo por WhatsApp según tu ubicación.",
+    "pickupTitle": "Retiro en Concón",
+    "pickupBadge": "SIN COSTO",
+    "pickupText": "Si estás cerca de Concón, retira tu pedido sin costo adicional. Coordinamos el día y hora que más te acomoden directamente por WhatsApp.",
+    "cta1": "COTIZAR ENVÍO",
+    "cta2": "COORDINAR RETIRO",
+    "note": "Por el momento solo realizamos envíos dentro de la V Región de Valparaíso. Para consultas especiales, contáctanos.",
+    "check1": "Valparaíso y Viña del Mar",
+    "check2": "Concón y Reñaca",
+    "check3": "Quilpué y Villa Alemana",
+    "check4": "Toda la región (consultar)",
+    "pcheck1": "Sin costo adicional",
+    "pcheck2": "Horario flexible",
+    "pcheck3": "Coordinar previamente"
+  },
+  "contact": {
+    "title1": "¿Listo para encontrar",
+    "title2": "tu fragancia perfecta?",
+    "subtitle": "Escríbenos y te ayudamos a elegir el perfume ideal para ti o para regalar. Atención personalizada, respuesta inmediata.",
+    "cta": "ESCRIBIR A WHATSAPP",
+    "hours": "Respondemos de Lunes a Sábado · 9:00 – 21:00 hrs"
+  },
+  "footer": {
+    "tagline": "Perfumes diseñador y árabes originales",
+    "location": "Concón, V Región de Valparaíso",
+    "copyright": "© 2025 Coast Parfum. Todos los derechos reservados.",
+    "slogan": "Descubre tu esencia. Vívimos el perfume.",
+    "collection": "COLECCIÓN",
+    "info": "INFORMACIÓN",
+    "contact": "CONTACTO",
+    "infoLinks": {
+      "about": "Sobre Nosotros",
+      "shipping": "Envíos V Región",
+      "guarantee": "Garantía Original",
+      "returns": "Política de Devoluciones",
+      "faq": "Preguntas Frecuentes"
+    }
+  }
+}

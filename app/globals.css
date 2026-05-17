@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+@import "tailwindcss";
+
+/* ─── CSS Custom Properties ─────────────────────────────── */
+:root {
+  --color-bg:           #080808;
+  --color-bg-soft:      #0F0F0F;
+  --color-bg-card:      #111111;
+  --color-gold:         #C9A84C;
+  --color-gold-light:   #E8C96A;
+  --color-gold-pale:    #F0DFA0;
+  --color-gold-dark:    #8B6914;
+  --color-cream:        #F5F0E8;
+  --color-cream-muted:  #C8BFB0;
+  --color-border:       rgba(201, 168, 76, 0.20);
+  --color-border-hover: rgba(201, 168, 76, 0.60);
+  --color-glow:         rgba(201, 168, 76, 0.08);
+  --color-whatsapp:     #25D366;
+}
+
+/* ─── Base Reset & Body ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ─── Custom Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+/* ─── Selection ─────────────────────────────────────────── */
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: var(--color-cream);
+}
+
+/* ─── Typography Utilities ──────────────────────────────── */
+.font-playfair   { font-family: 'Playfair Display', Georgia, serif; }
+.font-cormorant  { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-dm         { font-family: 'DM Sans', system-ui, sans-serif; }
+.font-mono-dm    { font-family: 'DM Mono', monospace; }
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #E8C96A 0%, #C9A84C 50%, #8B6914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gold Glow Effects ─────────────────────────────────── */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.3), 0 0 60px rgba(201, 168, 76, 0.1);
+}
+.glow-gold-sm {
+  box-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
+}
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+}
+
+/* ─── Glassmorphism ─────────────────────────────────────── */
+.glass-card {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+}
+.glass-dark {
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ─── Animations ────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25%       { transform: rotate(-6deg) scale(1.05); }
+  75%       { transform: rotate(6deg) scale(1.05); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to   { width: 120px; }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation classes */
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-float-slow  { animation: floatSlow 6s ease-in-out infinite; }
+.animate-wiggle      { animation: wiggle 0.5s ease-in-out; }
+.animate-pulse-ring  { animation: pulseRing 2.5s ease-out infinite; }
+.animate-bounce-slow { animation: bounceSlow 2s ease-in-out infinite; }
+.animate-spin-slow   { animation: spinSlow 20s linear infinite; }
+.animate-shimmer     { animation: shimmer 3s linear infinite; }
+.animate-marquee     { animation: marquee 30s linear infinite; }
+.animate-fade-in-up  { animation: fadeInUp 0.7s ease forwards; }
+.animate-fade-in     { animation: fadeIn 0.5s ease forwards; }
+
+/* ─── Wave SVG Decorations ──────────────────────────────── */
+.wave-decoration {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.05;
+}
+
+/* ─── Section Padding ───────────────────────────────────── */
+.section-padding {
+  padding: 100px 0;
+}
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 70px 0;
+  }
+}
+
+/* ─── Container ─────────────────────────────────────────── */
+.container-coast {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (max-width: 768px) {
+  .container-coast {
+    padding: 0 16px;
+  }
+}
+
+/* ─── Product Card Animations ───────────────────────────── */
+.product-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.15), 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Perfume Bottle Float ──────────────────────────────── */
+.bottle-float {
+  animation: float 4s ease-in-out infinite;
+}
+.product-card:hover .bottle-float {
+  animation: floatSlow 3s ease-in-out infinite;
+}
+
+/* ─── Notes Accordion ───────────────────────────────────── */
+.notes-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.notes-content.open {
+  max-height: 200px;
+}
+
+/* ─── Button Shimmer Effect ─────────────────────────────── */
+.btn-shimmer {
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #C9A84C 0%, #E8C96A 30%, #F0DFA0 50%, #E8C96A 70%, #C9A84C 100%);
+}
+.btn-shimmer:hover {
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* ─── Smooth scroll override for Three.js canvas ───────── */
+canvas {
+  display: block;
+}

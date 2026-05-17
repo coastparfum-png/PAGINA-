@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "perfumes": "Perfumes",
+    "about": "About",
+    "shipping": "Shipping",
+    "contact": "Contact",
+    "buyWhatsapp": "WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "V REGIÓN DE VALPARAÍSO, CHILE",
+    "title1": "COAST",
+    "title2": "PARFUM",
+    "subtitle": "100% original designer & Arabic fragrances",
+    "badge1": "100% Original",
+    "badge2": "V Region",
+    "badge3": "Personal Service",
+    "cta1": "EXPLORE COLLECTION",
+    "cta2": "BUY NOW",
+    "scroll": "SCROLL"
+  },
+  "trust": {
+    "original": "100% Original Perfumes",
+    "premium": "Curated Premium Selection",
+    "shipping": "Shipping to V Region Valparaíso",
+    "attention": "Personalized WhatsApp Service",
+    "secure": "Safe & Reliable Purchase"
+  },
+  "products": {
+    "eyebrow": "OUR COLLECTION",
+    "title1": "Fragrances That",
+    "title2": "Define Moments",
+    "filterAll": "All",
+    "filterFemale": "For Her",
+    "filterMale": "For Him",
+    "filterUnisex": "Unisex",
+    "notes": "Olfactive Notes",
+    "top": "Top",
+    "heart": "Heart",
+    "base": "Base",
+    "buy": "INQUIRE VIA WHATSAPP",
+    "consult": "Inquire",
+    "featuredLabel": "Featured",
+    "limitedLabel": "Limited Edition",
+    "genderFemale": "For Her",
+    "genderMale": "For Him",
+    "genderUnisex": "Unisex"
+  },
+  "about": {
+    "eyebrow": "OUR STORY",
+    "title1": "From Concón,",
+    "title2": "for the V Region",
+    "p1": "We are Coast Parfum, your trusted premium perfumery born in Concón, V Región de Valparaíso. We believe the world's finest fragrances shouldn't be an unreachable luxury.",
+    "p2": "Every perfume in our collection is 100% original, carefully selected from the finest designer houses and most exclusive Arabic perfumeries. We deliver them to your door throughout the Valparaíso region.",
+    "cta": "Write to us on WhatsApp →",
+    "metric1label": "Originals",
+    "metric2label": "Premium Brands",
+    "metric3label": "Valparaíso",
+    "value1title": "Authenticity",
+    "value1text": "Only 100% original fragrances, guaranteed",
+    "value2title": "Premium Curation",
+    "value2text": "Careful selection from the finest houses",
+    "value3title": "Regional Shipping",
+    "value3text": "We reach all of V Región de Valparaíso",
+    "value4title": "Personal Service",
+    "value4text": "Expert advice to find your perfect scent"
+  },
+  "shipping": {
+    "eyebrow": "LOGISTICS",
+    "title": "SHIPPING & PICKUP",
+    "subtitle": "Only within V Región de Valparaíso",
+    "deliveryTitle": "Home Delivery",
+    "deliveryText": "We ship throughout V Región de Valparaíso. We reach Valparaíso, Viña del Mar, Concón, Quilpué, Villa Alemana, Reñaca, Olmué, Casablanca, Quillota and more. Shipping costs are coordinated with you via WhatsApp.",
+    "pickupTitle": "Pickup in Concón",
+    "pickupBadge": "FREE",
+    "pickupText": "If you're near Concón, pick up your order at no extra cost. We coordinate the day and time that suits you best, directly via WhatsApp.",
+    "cta1": "GET SHIPPING QUOTE",
+    "cta2": "ARRANGE PICKUP",
+    "note": "We currently only ship within V Región de Valparaíso. For special inquiries, contact us.",
+    "check1": "Valparaíso and Viña del Mar",
+    "check2": "Concón and Reñaca",
+    "check3": "Quilpué and Villa Alemana",
+    "check4": "All region (inquire)",
+    "pcheck1": "No extra cost",
+    "pcheck2": "Flexible schedule",
+    "pcheck3": "Prior arrangement"
+  },
+  "contact": {
+    "title1": "Ready to find",
+    "title2": "your perfect fragrance?",
+    "subtitle": "Write to us and we'll help you choose the ideal perfume for yourself or as a gift. Personalized attention, immediate response.",
+    "cta": "WRITE ON WHATSAPP",
+    "hours": "We respond Monday to Saturday · 9:00 AM – 9:00 PM"
+  },
+  "footer": {
+    "tagline": "Original designer & Arabic fragrances",
+    "location": "Concón, V Región de Valparaíso",
+    "copyright": "© 2025 Coast Parfum. All rights reserved.",
+    "slogan": "Discover your essence. We live perfume.",
+    "collection": "COLLECTION",
+    "info": "INFORMATION",
+    "contact": "CONTACT",
+    "infoLinks": {
+      "about": "About Us",
+      "shipping": "V Region Shipping",
+      "guarantee": "Original Guarantee",
+      "returns": "Return Policy",
+      "faq": "FAQ"
+    }
+  }
+}
