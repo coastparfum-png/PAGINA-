@@ -42,8 +42,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=1",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=10",
   },
   {
     id: "2",
@@ -63,8 +63,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://images.unsplash.com/photo-1583145638210-2130e5d081ec?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=2",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=20",
   },
   {
     id: "3",
@@ -84,8 +84,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=3",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=30",
   },
   {
     id: "4",
@@ -105,8 +105,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1583145638210-2130e5d081ec?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=4",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=40",
   },
   {
     id: "5",
@@ -126,8 +126,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=5",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=50",
   },
   {
     id: "6",
@@ -147,7 +147,7 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: true,
-    imageUrl: "https://images.unsplash.com/photo-1595532542520-22c608f5d023?q=80&w=600&auto=format&fit=crop",
-    imageFallback: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://loremflickr.com/600/800/perfume?lock=6",
+    imageFallback: "https://loremflickr.com/600/800/perfume?lock=60",
   }
 ];
