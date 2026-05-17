@@ -24,13 +24,13 @@ export function useScrollAnimations() {
         opacity: 0,
         duration: 0.6,
         ease: "power3.out",
+        onComplete: () => {
+          el.classList.add("animated-fade-up");
+        },
         scrollTrigger: {
           trigger: el,
           start: "top 92%",
           toggleActions: "play none none none",
-          onComplete: () => {
-            el.classList.add("animated-fade-up");
-          }
         },
       });
     });
