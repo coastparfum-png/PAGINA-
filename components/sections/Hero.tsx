@@ -117,7 +117,7 @@ export function Hero() {
 
           {/* Mini Stats */}
           <div className="flex flex-wrap gap-3 mb-10">
-            {["100% Originales", "6 Marcas", "V Región"].map((stat, i) => (
+            {["100% Originales", "100+ Marcas", "V Región"].map((stat, i) => (
               <motion.span
                 key={stat}
                 initial={{ opacity: 0, y: 10 }}

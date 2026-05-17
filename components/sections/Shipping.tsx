@@ -27,7 +27,7 @@ export function Shipping() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-[1.5rem] mb-10">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-[1.5rem] mb-10">
           {/* Delivery Card */}
           <div
             data-animate="fade-up"
@@ -96,6 +96,32 @@ export function Shipping() {
             >
               COORDINAR RETIRO
             </button>
+          </div>
+
+          {/* Showcase Image Card */}
+          <div
+            data-animate="fade-up"
+            className="relative rounded-[16px] overflow-hidden border border-[rgba(201,168,76,0.15)] transition-all duration-300 hover:border-[rgba(201,168,76,0.5)] hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] h-[400px] md:h-auto min-h-[350px] flex flex-col justify-end p-8 group md:col-span-2 lg:col-span-1"
+          >
+            {/* Background Image */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style={{ backgroundImage: `url('/luxury_delivery_package.png')` }}
+            />
+            {/* Dark/Gold gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
+            
+            <div className="relative z-10">
+              <span className="font-mono-dm text-[0.62rem] tracking-[0.3em] text-[#C9A84C] uppercase mb-2 block">
+                Coast Parfum Experience
+              </span>
+              <h4 className="font-playfair text-[1.3rem] text-[#F5F0E8] leading-tight mb-2">
+                Empaque de Lujo
+              </h4>
+              <p className="font-dm text-[0.78rem] text-[#9A9288] leading-relaxed">
+                Cada perfume se entrega en nuestro empaque premium exclusivo, diseñado para preservar la sofisticación de tus fragancias de diseñador.
+              </p>
+            </div>
           </div>
         </div>
 

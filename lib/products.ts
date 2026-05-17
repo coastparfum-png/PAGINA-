@@ -42,8 +42,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=1",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=10",
+    imageUrl: "/images/products/ck-one-shock.png",
+    imageFallback: "/images/products/ck-one-shock.png",
   },
   {
     id: "2",
@@ -63,8 +63,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=2",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=20",
+    imageUrl: "/images/products/stronger-with-you.png",
+    imageFallback: "/images/products/stronger-with-you.png",
   },
   {
     id: "3",
@@ -84,8 +84,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=3",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=30",
+    imageUrl: "/images/products/toy2-bubblegum.png",
+    imageFallback: "/images/products/toy2-bubblegum.png",
   },
   {
     id: "4",
@@ -105,8 +105,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=4",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=40",
+    imageUrl: "/images/products/light-blue-dg.png",
+    imageFallback: "/images/products/light-blue-dg.png",
   },
   {
     id: "5",
@@ -126,8 +126,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=5",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=50",
+    imageUrl: "/images/products/yes-i-am.png",
+    imageFallback: "/images/products/yes-i-am.png",
   },
   {
     id: "6",
@@ -147,7 +147,7 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: true,
-    imageUrl: "https://loremflickr.com/600/800/perfume?lock=6",
-    imageFallback: "https://loremflickr.com/600/800/perfume?lock=60",
+    imageUrl: "/images/products/mandarin-sky.png",
+    imageFallback: "/images/products/mandarin-sky.png",
   }
 ];

@@ -76,7 +76,7 @@ export function About() {
               <div className="w-px bg-[rgba(201,168,76,0.2)]" />
               <div className="text-center">
                 <span className="font-playfair font-bold text-[3rem] text-gradient-gold">
-                  <span data-counter="6">0</span>+
+                  <span data-counter="100">0</span>+
                 </span>
                 <p className="font-dm text-[0.78rem] text-[#9A9288] mt-1 tracking-wider">
                   Marcas de Lujo
