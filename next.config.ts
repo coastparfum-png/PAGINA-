@@ -4,20 +4,24 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "**.supabase.co" },
+      { protocol: "https", hostname: "img.fragrancenet.com" },
+      { protocol: "https", hostname: "www.sephora.com" },
+      { protocol: "https", hostname: "images.thefragranceshop.co.uk" },
+      { protocol: "https", hostname: "www.eliteperfumes.cl" },
+      { protocol: "https", hostname: "www.perfumedirect.com" },
+      { protocol: "https", hostname: "cdn.shopify.com" },
     ],
+    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },

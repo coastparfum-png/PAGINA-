@@ -1,130 +1,153 @@
+export type FragranceType = "EDT" | "EDP" | "EXP" | "PARFUM";
+export type Gender = "female" | "male" | "unisex";
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
   brand: string;
   size_ml: number;
-  type: "EDT" | "EDP" | "EXP" | "PARFUM";
-  price: number;
-  gender: "female" | "male" | "unisex";
-  gradient: string;
-  accent: string;
-  top_notes: string;
-  heart_notes: string;
-  base_notes: string;
+  fragrance_type: FragranceType;
+  price_clp: number;
+  gender: Gender;
   description: string;
+  notes_top: string;
+  notes_heart: string;
+  notes_base: string;
+  gradient_class: string;
+  accent_color: string;
+  in_stock: boolean;
   featured: boolean;
-  limited?: boolean;
+  limited: boolean;
+  imageUrl: string;
+  imageFallback: string;
 }
 
 export const products: Product[] = [
   {
-    id: "ck-one-shock",
+    id: "1",
     slug: "ck-one-shock",
     name: "CK One Shock For Her",
     brand: "Calvin Klein",
     size_ml: 100,
-    type: "EDT",
-    price: 44990,
+    fragrance_type: "EDT",
+    price_clp: 44990,
     gender: "female",
-    gradient: "from-rose-950 via-stone-900 to-[#0F0800]",
-    accent: "#E8A0B0",
-    top_notes: "Flor de pasionaria, amapola roja, peonía",
-    heart_notes: "Jazmín, narciso, chocolate mexicano, zarzamora",
-    base_notes: "Almizcle, pachulí, ámbar, vainilla",
-    description:
-      "Audaz y seductora. La primera fragancia femenina de la familia CK One rompe las reglas con un corazón de chocolate y notas orientales especiadas. Sexy e irresistible.",
+    description: "Audaz y seductora. La primera fragancia femenina de la familia CK One rompe las reglas con un corazón de chocolate y notas orientales especiadas. Sexy e irresistible.",
+    notes_top: "Flor de pasionaria, amapola roja, peonía",
+    notes_heart: "Jazmín, narciso, chocolate mexicano, zarzamora",
+    notes_base: "Almizcle, pachulí, ámbar, vainilla",
+    gradient_class: "linear-gradient(135deg,#1a0505,#2d0a0a)",
+    accent_color: "#E8A0B0",
+    in_stock: true,
     featured: true,
+    limited: false,
+    imageUrl: "https://img.fragrancenet.com/perfumes/CalvinKlein/CalvinKleinCKOneShockHer/CalvinKleinCKOneShockHer_L.jpg",
+    imageFallback: "https://www.perfumedirect.com/cdn/shop/products/ck-one-shock-her-100ml_800x.jpg",
   },
   {
-    id: "stronger-with-you",
+    id: "2",
     slug: "stronger-with-you",
     name: "Stronger With You",
     brand: "Emporio Armani",
     size_ml: 50,
-    type: "EDT",
-    price: 69990,
+    fragrance_type: "EDT",
+    price_clp: 69990,
     gender: "male",
-    gradient: "from-stone-950 via-zinc-900 to-[#080808]",
-    accent: "#8B9DC3",
-    top_notes: "Cardamomo, hojas de violeta",
-    heart_notes: "Lavanda, salvia, castaña glaseada",
-    base_notes: "Vainilla, cedro, almizcle",
-    description:
-      "Para el hombre que conecta de verdad. Una fragancia especiada y dulce que combina frescura mediterránea con calidez envolvente. Elegante, moderno y memorable.",
+    description: "Para el hombre que conecta de verdad. Una fragancia especiada y dulce que combina frescura mediterránea con calidez envolvente. Elegante, moderno y memorable.",
+    notes_top: "Cardamomo, hojas de violeta",
+    notes_heart: "Lavanda, salvia, castaña glaseada",
+    notes_base: "Vainilla, cedro, almizcle",
+    gradient_class: "linear-gradient(135deg,#0a0a12,#12121f)",
+    accent_color: "#8B9DC3",
+    in_stock: true,
     featured: true,
+    limited: false,
+    imageUrl: "https://img.fragrancenet.com/perfumes/GiorgioArmani/EmporioArmaniStrongerWithYou/EmporioArmaniStrongerWithYou_L.jpg",
+    imageFallback: "https://www.sephora.com/productimages/sku/s2246563-main-zoom.jpg",
   },
   {
-    id: "toy2-bubblegum",
+    id: "3",
     slug: "toy2-bubblegum",
     name: "Toy 2 Bubble Gum",
     brand: "Moschino",
     size_ml: 100,
-    type: "EDT",
-    price: 64990,
+    fragrance_type: "EDT",
+    price_clp: 64990,
     gender: "female",
-    gradient: "from-pink-950 via-fuchsia-950 to-[#0F0808]",
-    accent: "#F472B6",
-    top_notes: "Frutas confitadas, naranja amarga, limón",
-    heart_notes: "Goma de mascar, rosa búlgara, durazno, jengibre",
-    base_notes: "Almizcle, ambroxan, cedro",
-    description:
-      "Divertida, juvenil y totalmente adictiva. El icónico osito rosa de Moschino en un aroma dulce y frutal que captura la alegría y la energía de vivir sin reglas.",
+    description: "Divertida, juvenil y totalmente adictiva. El icónico osito rosa de Moschino en un aroma dulce y frutal que captura la alegría y la energía de vivir sin reglas.",
+    notes_top: "Frutas confitadas, naranja amarga, limón",
+    notes_heart: "Goma de mascar, rosa búlgara, durazno, jengibre",
+    notes_base: "Almizcle, ambroxan, cedro",
+    gradient_class: "linear-gradient(135deg,#1f0514,#2d0a1e)",
+    accent_color: "#F472B6",
+    in_stock: true,
     featured: false,
+    limited: false,
+    imageUrl: "https://img.fragrancenet.com/perfumes/Moschino/MoschinoToy2BubbleGum/MoschinoToy2BubbleGum_L.jpg",
+    imageFallback: "https://images.thefragranceshop.co.uk/catalog/product/m/o/moschino-toy-2-bubblegum-edt-100ml_1.jpg",
   },
   {
-    id: "light-blue-dg",
+    id: "4",
     slug: "light-blue-dg",
     name: "Light Blue",
     brand: "Dolce & Gabbana",
     size_ml: 100,
-    type: "EDT",
-    price: 69990,
+    fragrance_type: "EDT",
+    price_clp: 69990,
     gender: "female",
-    gradient: "from-sky-950 via-blue-950 to-[#050A0F]",
-    accent: "#7DD3FC",
-    top_notes: "Limón siciliano, manzana Granny Smith, cedro",
-    heart_notes: "Bambú, jazmín, rosa blanca",
-    base_notes: "Cedro, almizcle, ámbar",
-    description:
-      "El Mediterráneo en un frasco. Fresca, luminosa e icónica. Light Blue evoca las tardes de verano junto al mar con su frescura cítrica y su corazón floral atemporal.",
+    description: "El Mediterráneo en un frasco. Fresca, luminosa e icónica. Light Blue evoca las tardes de verano junto al mar con su frescura cítrica y su corazón floral atemporal.",
+    notes_top: "Limón siciliano, manzana Granny Smith, cedro",
+    notes_heart: "Bambú, jazmín, rosa blanca",
+    notes_base: "Cedro, almizcle, ámbar",
+    gradient_class: "linear-gradient(135deg,#050a14,#0a1424)",
+    accent_color: "#7DD3FC",
+    in_stock: true,
     featured: true,
+    limited: false,
+    imageUrl: "https://img.fragrancenet.com/perfumes/DolceGabbana/DolceGabbanaDolceGabbanaLightBlue/DolceGabbanaDolceGabbanaLightBlue_L.jpg",
+    imageFallback: "https://www.sephora.com/productimages/sku/s1891629-main-zoom.jpg",
   },
   {
-    id: "yes-i-am",
+    id: "5",
     slug: "yes-i-am",
     name: "Yes I Am",
     brand: "Cacharel",
     size_ml: 50,
-    type: "EDP",
-    price: 39990,
+    fragrance_type: "EDP",
+    price_clp: 39990,
     gender: "female",
-    gradient: "from-red-950 via-rose-950 to-[#0F0505]",
-    accent: "#FB7185",
-    top_notes: "Pera, pera glaseada",
-    heart_notes: "Rosa centifolia, rosa turca, iris",
-    base_notes: "Almizcle, madera de cachemira, sándalo",
-    description:
-      "Una declaración de amor propio. Floral intensa con corazón de rosas excepcionales y una base cálida de cachemira. Sofisticada, femenina y poderosa.",
+    description: "Una declaración de amor propio. Floral intensa con corazón de rosas excepcionales y una base cálida de cachemira. Sofisticada, femenina y poderosa.",
+    notes_top: "Pera, pera glaseada",
+    notes_heart: "Rosa centifolia, rosa turca, iris",
+    notes_base: "Almizcle, madera de cachemira, sándalo",
+    gradient_class: "linear-gradient(135deg,#1a0505,#250808)",
+    accent_color: "#FB7185",
+    in_stock: true,
     featured: false,
+    limited: false,
+    imageUrl: "https://img.fragrancenet.com/perfumes/Cacharel/CacharelYesIAm/CacharelYesIAm_L.jpg",
+    imageFallback: "https://images.thefragranceshop.co.uk/catalog/product/y/e/yes-i-am-cacharel-edp-50ml.jpg",
   },
   {
-    id: "mandarin-sky-elixir",
+    id: "6",
     slug: "mandarin-sky-elixir",
     name: "Odyssey Mandarin Sky Elixir",
     brand: "Armaf",
     size_ml: 100,
-    type: "EDP",
-    price: 54990,
+    fragrance_type: "EDP",
+    price_clp: 54990,
     gender: "unisex",
-    gradient: "from-blue-950 via-indigo-950 to-[#050508]",
-    accent: "#818CF8",
-    top_notes: "Mandarina, naranja, lavanda, pimienta negra, cardamomo",
-    heart_notes: "Caramelo, haba tonka, pachulí, incienso",
-    base_notes: "Vainilla, vetiver",
-    description:
-      "Edición limitada 2025. Oriental amaderada unisex de larga duración excepcional. Mandarina vibrante que evoluciona hacia un corazón especiado y una base cálida de vainilla.",
+    description: "Edición limitada 2025. Oriental amaderada unisex de larga duración excepcional. Mandarina vibrante que evoluciona hacia un corazón especiado y una base cálida de vainilla.",
+    notes_top: "Mandarina, naranja, lavanda, pimienta negra, cardamomo",
+    notes_heart: "Caramelo, haba tonka, pachulí, incienso",
+    notes_base: "Vainilla, vetiver",
+    gradient_class: "linear-gradient(135deg,#050a14,#0d0d24)",
+    accent_color: "#818CF8",
+    in_stock: true,
     featured: true,
     limited: true,
-  },
+    imageUrl: "https://img.fragrancenet.com/perfumes/Armaf/ArmafOdysseyMandarinSkyElixir/ArmafOdysseyMandarinSkyElixir_L.jpg",
+    imageFallback: "https://www.eliteperfumes.cl/cdn/shop/files/ODYSSEY-MANDARIN-SKY-ELIXIR-EDP-100ML.jpg",
+  }
 ];

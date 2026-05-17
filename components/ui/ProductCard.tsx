@@ -1,265 +1,159 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { Product } from "@/lib/products";
-import { Badge } from "@/components/ui/Badge";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 interface ProductCardProps {
   product: Product;
-  t: {
-    top: string;
-    heart: string;
-    base: string;
-    notes: string;
-    buy: string;
-    genderFemale: string;
-    genderMale: string;
-    genderUnisex: string;
-    limitedLabel: string;
-    featuredLabel: string;
-  };
+  t: Record<string, string>;
   index: number;
 }
 
-function PerfumeBottleSVG({
-  gender,
-  accent,
-}: {
-  gender: "female" | "male" | "unisex";
-  accent: string;
-}) {
-  if (gender === "female") {
-    return (
-      <svg width="80" height="130" viewBox="0 0 80 130" fill="none">
-        <defs>
-          <linearGradient id={`fg-${accent}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={accent} stopOpacity="0.9" />
-            <stop offset="100%" stopColor={accent} stopOpacity="0.4" />
-          </linearGradient>
-          <linearGradient id={`fh-${accent}`} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="white" stopOpacity="0.25" />
-            <stop offset="60%" stopColor="white" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        {/* Cap */}
-        <rect x="28" y="0" width="24" height="14" rx="4" fill={accent} opacity="0.9" />
-        <rect x="32" y="14" width="16" height="6" rx="2" fill={accent} opacity="0.7" />
-        {/* Neck */}
-        <rect x="33" y="20" width="14" height="12" rx="2" fill={accent} opacity="0.6" />
-        {/* Body - curved */}
-        <path
-          d="M18 42 Q10 50 10 70 Q10 105 40 108 Q70 105 70 70 Q70 50 62 42 Z"
-          fill={`url(#fg-${accent})`}
-        />
-        {/* Highlight */}
-        <path
-          d="M18 42 Q10 50 10 70 Q10 105 40 108 Q70 105 70 70 Q70 50 62 42 Z"
-          fill={`url(#fh-${accent})`}
-        />
-        {/* Label */}
-        <rect x="22" y="62" width="36" height="28" rx="3" fill="white" opacity="0.12" />
-      </svg>
-    );
-  }
-
-  if (gender === "male") {
-    return (
-      <svg width="75" height="130" viewBox="0 0 75 130" fill="none">
-        <defs>
-          <linearGradient id={`mg-${accent}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={accent} stopOpacity="0.85" />
-            <stop offset="100%" stopColor={accent} stopOpacity="0.4" />
-          </linearGradient>
-          <linearGradient id={`mh-${accent}`} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="white" stopOpacity="0.2" />
-            <stop offset="60%" stopColor="white" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        {/* Cap */}
-        <rect x="24" y="0" width="27" height="12" rx="2" fill={accent} opacity="0.95" />
-        <rect x="28" y="12" width="19" height="8" rx="1" fill={accent} opacity="0.75" />
-        {/* Body - rectangular */}
-        <rect x="12" y="20" width="51" height="88" rx="4" fill={`url(#mg-${accent})`} />
-        <rect x="12" y="20" width="51" height="88" rx="4" fill={`url(#mh-${accent})`} />
-        {/* Label */}
-        <rect x="18" y="55" width="39" height="32" rx="3" fill="white" opacity="0.1" />
-        {/* Ridges */}
-        <rect x="12" y="96" width="51" height="8" rx="2" fill={accent} opacity="0.5" />
-      </svg>
-    );
-  }
-
-  // Unisex - square/modern
-  return (
-    <svg width="85" height="125" viewBox="0 0 85 125" fill="none">
-      <defs>
-        <linearGradient id={`ug-${accent}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={accent} stopOpacity="0.8" />
-          <stop offset="100%" stopColor={accent} stopOpacity="0.35" />
-        </linearGradient>
-        <linearGradient id={`uh-${accent}`} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="white" stopOpacity="0.22" />
-          <stop offset="60%" stopColor="white" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {/* Cap - modern flat */}
-      <rect x="26" y="0" width="33" height="10" rx="3" fill={accent} opacity="0.9" />
-      <rect x="32" y="10" width="21" height="8" rx="1.5" fill={accent} opacity="0.7" />
-      {/* Body - square with slight radius */}
-      <rect x="8" y="18" width="69" height="92" rx="6" fill={`url(#ug-${accent})`} />
-      <rect x="8" y="18" width="69" height="92" rx="6" fill={`url(#uh-${accent})`} />
-      {/* Label */}
-      <rect x="16" y="50" width="53" height="38" rx="4" fill="white" opacity="0.1" />
-      {/* Bottom */}
-      <rect x="8" y="102" width="69" height="8" rx="3" fill={accent} opacity="0.4" />
-    </svg>
-  );
-}
-
 export function ProductCard({ product, t, index }: ProductCardProps) {
-  const [notesOpen, setNotesOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
-  const genderLabel =
-    product.gender === "female"
-      ? t.genderFemale
-      : product.gender === "male"
-      ? t.genderMale
-      : t.genderUnisex;
+  const getGenderStyle = (gender: string) => {
+    switch (gender) {
+      case "female":
+        return "bg-[#3d0a1a] text-[#f9a8c9] border-[#7f1d3f]";
+      case "male":
+        return "bg-[#0a0f2e] text-[#93c5fd] border-[#1e3a8a]";
+      case "unisex":
+        return "bg-[#0f0a2e] text-[#c4b5fd] border-[#4c1d95]";
+      default:
+        return "bg-gray-800 text-gray-300 border-gray-600";
+    }
+  };
 
-  const genderBadge =
-    product.gender === "female"
-      ? "female"
-      : product.gender === "male"
-      ? "male"
-      : "unisex";
-
-  const handleBuy = () => {
-    const link = buildWhatsAppLink(
-      product.name,
-      product.size_ml,
-      product.type,
-      product.price
-    );
-    window.open(link, "_blank");
+  const getGenderLabel = (gender: string) => {
+    switch (gender) {
+      case "female":
+        return t.genderFemale;
+      case "male":
+        return t.genderMale;
+      case "unisex":
+        return t.genderUnisex;
+      default:
+        return gender;
+    }
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="product-card glass-card rounded-2xl overflow-hidden flex flex-col"
+      data-animate="fade-up"
+      className="group relative bg-[var(--bg-card)] border border-[var(--border)] rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-[6px] hover:border-[var(--border-hover)] flex flex-col h-full"
+      style={{
+        boxShadow: "0 0 0 1px rgba(201,168,76,0)",
+      }}
+      whileHover={{
+        boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.15)",
+      }}
     >
-      {/* Visual Zone */}
-      <div
-        className={`relative bg-gradient-to-br ${product.gradient} h-56 flex items-center justify-center overflow-hidden`}
+      {/* Image Zone */}
+      <div 
+        className="relative w-full h-[260px] overflow-hidden flex items-center justify-center shrink-0"
+        style={{ background: product.gradient_class }}
       >
-        {/* Ambient glow */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: `radial-gradient(ellipse at 50% 80%, ${product.accent}40 0%, transparent 70%)`,
-          }}
-        />
-
-        {/* Bottle */}
-        <div className="bottle-float relative z-10 drop-shadow-2xl">
-          <PerfumeBottleSVG gender={product.gender} accent={product.accent} />
-        </div>
-
-        {/* Gender badge top-right */}
-        <div className="absolute top-3 right-3">
-          <Badge variant={genderBadge}>{genderLabel}</Badge>
-        </div>
-
-        {/* Limited badge top-left */}
+        {/* Badges */}
         {product.limited && (
-          <div className="absolute top-3 left-3">
-            <Badge variant="limited">✦ {t.limitedLabel}</Badge>
+          <div className="absolute top-4 left-4 z-20 bg-[#1a1000] text-[#C9A84C] border border-[#C9A84C] px-[6px] py-[2px] font-mono-dm text-[0.6rem] rounded">
+            ✦ LTD EDITION
           </div>
         )}
+        <div className={`absolute top-4 right-4 z-20 font-dm font-semibold text-[0.62rem] tracking-wider px-[9px] py-[3px] rounded-full border ${getGenderStyle(product.gender)}`}>
+          {getGenderLabel(product.gender)}
+        </div>
 
-        {/* Featured star */}
-        {product.featured && !product.limited && (
-          <div className="absolute top-3 left-3">
-            <span className="text-[#C9A84C] text-sm opacity-80">✦</span>
-          </div>
-        )}
+        {/* Product Image */}
+        <div className="relative w-[280px] h-[260px] p-6 z-10 transition-transform duration-500 group-hover:scale-105">
+          <Image
+            src={imgError ? product.imageFallback : product.imageUrl}
+            alt={product.name}
+            width={280}
+            height={260}
+            className="w-full h-full object-contain drop-shadow-2xl"
+            unoptimized
+            onError={() => setImgError(true)}
+          />
+        </div>
+
+        {/* Hover Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-10 pointer-events-none" />
       </div>
 
       {/* Info Zone */}
-      <div className="flex flex-col flex-1 p-5">
-        <p className="font-cormorant italic text-[0.78rem] tracking-[0.15em] text-[#C9A84C] mb-1">
-          {product.brand}
-        </p>
-        <h3 className="font-playfair font-bold text-[1.1rem] text-[#F5F0E8] leading-tight mb-2">
+      <div className="p-[20px] flex flex-col grow">
+        <div className="flex justify-between items-center">
+          <span className="font-cormorant italic text-[0.8rem] text-[#C9A84C]">
+            {product.brand}
+          </span>
+          <span className="font-mono-dm text-[0.68rem] text-[#888] bg-[#1a1a1a] px-[8px] py-[2px] rounded">
+            {product.size_ml}ml · {product.fragrance_type}
+          </span>
+        </div>
+
+        <h3 className="font-playfair font-bold text-[1.1rem] text-[#F5F0E8] mt-[6px] leading-[1.25]">
           {product.name}
         </h3>
-        <p className="font-dm text-[0.78rem] text-[#C8BFB0] leading-relaxed mb-3 line-clamp-2">
+
+        <p className="font-dm text-[0.78rem] text-[#9A9288] mt-[8px] line-clamp-2">
           {product.description}
         </p>
 
-        {/* Olfactive Notes Accordion */}
-        <div className="mb-4">
-          <button
-            onClick={() => setNotesOpen(!notesOpen)}
-            className="flex items-center gap-2 text-[0.72rem] font-dm font-medium text-[#C9A84C] tracking-wider uppercase transition-opacity hover:opacity-80"
+        {/* Notes Accordion */}
+        <div className="mt-[12px]">
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="font-dm text-[0.72rem] text-[#C9A84C] hover:text-[#E8C96A] cursor-pointer flex items-center gap-1 transition-colors"
           >
-            {t.notes}
-            <motion.span
-              animate={{ rotate: notesOpen ? 180 : 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              <ChevronDown size={14} />
-            </motion.span>
+            Ver notas olfativas {isOpen ? "▴" : "▾"}
           </button>
-          <div className={`notes-content ${notesOpen ? "open" : ""}`}>
-            <div className="mt-3 space-y-2">
-              {[
-                { label: t.top, value: product.top_notes },
-                { label: t.heart, value: product.heart_notes },
-                { label: t.base, value: product.base_notes },
-              ].map(({ label, value }) => (
-                <div key={label} className="flex gap-2 items-start">
-                  <span className="font-mono-dm text-[0.62rem] text-[#C9A84C] uppercase tracking-wider pt-0.5 whitespace-nowrap">
-                    {label}
-                  </span>
-                  <span className="font-dm text-[0.72rem] text-[#C8BFB0] leading-relaxed">
-                    {value}
-                  </span>
+          
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="overflow-hidden"
+              >
+                <div className="pt-3 pb-1 space-y-1.5 border-t border-[rgba(201,168,76,0.1)] mt-2">
+                  <p className="font-dm text-[0.72rem] leading-tight">
+                    <span className="text-[#C9A84C]">{t.top}:</span> <span className="text-[#9A9288]">{product.notes_top}</span>
+                  </p>
+                  <p className="font-dm text-[0.72rem] leading-tight">
+                    <span className="text-[#C9A84C]">{t.heart}:</span> <span className="text-[#9A9288]">{product.notes_heart}</span>
+                  </p>
+                  <p className="font-dm text-[0.72rem] leading-tight">
+                    <span className="text-[#C9A84C]">{t.base}:</span> <span className="text-[#9A9288]">{product.notes_base}</span>
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Price + Volume */}
-        <div className="flex items-center justify-between mt-auto mb-4">
-          <span className="font-playfair font-bold text-[1.35rem] text-[#E8C96A]">
-            ${product.price.toLocaleString("es-CL")}
-          </span>
-          <span className="font-mono-dm text-[0.72rem] text-[#C8BFB0] border border-[rgba(201,168,76,0.25)] rounded-full px-3 py-1">
-            {product.size_ml}ml · {product.type}
-          </span>
+        <div className="mt-auto pt-[14px] pb-[16px]">
+          <p className="font-playfair font-bold text-[1.45rem] text-[#E8C96A]">
+            ${product.price_clp.toLocaleString("es-CL")}
+          </p>
         </div>
-
-        {/* WhatsApp Button */}
-        <motion.button
-          onClick={handleBuy}
-          whileHover={{ scale: 1.01, backgroundColor: "#E8C96A" }}
-          whileTap={{ scale: 0.99 }}
-          className="w-full bg-[#C9A84C] text-[#080808] font-dm font-bold text-[0.72rem] tracking-[0.22em] uppercase py-3.5 px-4 flex items-center justify-center gap-2.5 rounded-xl transition-colors duration-200 cursor-pointer"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.49" />
-          </svg>
-          {t.buy}
-        </motion.button>
       </div>
+
+      {/* Full-width CTA */}
+      <button
+        onClick={() => window.open(buildWhatsAppLink(product.name, product.size_ml, product.fragrance_type, product.price_clp), "_blank")}
+        className="w-full bg-[#C9A84C] text-[#080808] font-dm font-bold text-[0.72rem] tracking-[0.22em] uppercase px-[16px] py-[13px] rounded-b-[10px] flex justify-center items-center gap-2 hover:bg-[#E8C96A] hover:scale-[1.005] active:scale-[0.998] transition-all cursor-pointer shrink-0 m-0 border-none"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.49" />
+        </svg>
+        CONSULTAR POR WHATSAPP
+      </button>
     </motion.div>
   );
 }

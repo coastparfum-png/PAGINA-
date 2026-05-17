@@ -4,6 +4,7 @@ import { getMessages, getLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { ScrollProvider } from "@/components/ScrollProvider";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -106,10 +107,12 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-      <WhatsAppFloat />
+      <ScrollProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <WhatsAppFloat />
+      </ScrollProvider>
     </NextIntlClientProvider>
   );
 }
