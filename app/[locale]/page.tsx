@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { CarouselShowcase } from "@/components/sections/CarouselShowcase";
 import { Products } from "@/components/sections/Products";
 import { About } from "@/components/sections/About";
 import { Shipping } from "@/components/sections/Shipping";
@@ -10,6 +11,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustBar />
+      <CarouselShowcase />
       <Products />
       <About />
       <Shipping />

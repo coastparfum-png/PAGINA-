@@ -42,8 +42,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "/images/products/ck-one-shock.png",
-    imageFallback: "/images/products/ck-one-shock.png",
+    imageUrl: "/Stock perfumes/CK One Shock For Her/perfume.png",
+    imageFallback: "/Stock perfumes/CK One Shock For Her/perfume.png",
   },
   {
     id: "2",
@@ -63,8 +63,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "/images/products/stronger-with-you.png",
-    imageFallback: "/images/products/stronger-with-you.png",
+    imageUrl: "/Stock perfumes/Stronger With You/perfume.png",
+    imageFallback: "/Stock perfumes/Stronger With You/perfume.png",
   },
   {
     id: "3",
@@ -84,8 +84,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "/images/products/toy2-bubblegum.png",
-    imageFallback: "/images/products/toy2-bubblegum.png",
+    imageUrl: "/Stock perfumes/Toy 2 Bubble Gum/perfume.png",
+    imageFallback: "/Stock perfumes/Toy 2 Bubble Gum/perfume.png",
   },
   {
     id: "4",
@@ -105,8 +105,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "/images/products/light-blue-dg.png",
-    imageFallback: "/images/products/light-blue-dg.png",
+    imageUrl: "/Stock perfumes/Light Blue/perfume.png",
+    imageFallback: "/Stock perfumes/Light Blue/perfume.png",
   },
   {
     id: "5",
@@ -126,8 +126,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "/images/products/yes-i-am.png",
-    imageFallback: "/images/products/yes-i-am.png",
+    imageUrl: "/Stock perfumes/Yes I Am/perfume.png",
+    imageFallback: "/Stock perfumes/Yes I Am/perfume.png",
   },
   {
     id: "6",
@@ -147,7 +147,7 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: true,
-    imageUrl: "/images/products/mandarin-sky.png",
-    imageFallback: "/images/products/mandarin-sky.png",
+    imageUrl: "/Stock perfumes/Odyssey Mandarin Sky Elixir/perfume.png",
+    imageFallback: "/Stock perfumes/Odyssey Mandarin Sky Elixir/perfume.png",
   }
 ];
