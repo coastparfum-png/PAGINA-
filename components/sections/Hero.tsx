@@ -174,7 +174,6 @@ export function Hero() {
               fill
               className="object-contain object-center lg:object-right"
               priority
-              unoptimized
               onError={() => setImgError(true)}
             />
           </motion.div>

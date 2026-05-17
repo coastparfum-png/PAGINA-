@@ -76,7 +76,6 @@ export function ProductCard({ product, t, index }: ProductCardProps) {
             width={280}
             height={260}
             className="w-full h-full object-contain drop-shadow-2xl"
-            unoptimized
             onError={() => setImgError(true)}
           />
         </div>

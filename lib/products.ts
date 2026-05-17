@@ -42,8 +42,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://img.fragrancenet.com/perfumes/CalvinKlein/CalvinKleinCKOneShockHer/CalvinKleinCKOneShockHer_L.jpg",
-    imageFallback: "https://www.perfumedirect.com/cdn/shop/products/ck-one-shock-her-100ml_800x.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop",
   },
   {
     id: "2",
@@ -63,8 +63,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://img.fragrancenet.com/perfumes/GiorgioArmani/EmporioArmaniStrongerWithYou/EmporioArmaniStrongerWithYou_L.jpg",
-    imageFallback: "https://www.sephora.com/productimages/sku/s2246563-main-zoom.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1583145638210-2130e5d081ec?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
   },
   {
     id: "3",
@@ -84,8 +84,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://img.fragrancenet.com/perfumes/Moschino/MoschinoToy2BubbleGum/MoschinoToy2BubbleGum_L.jpg",
-    imageFallback: "https://images.thefragranceshop.co.uk/catalog/product/m/o/moschino-toy-2-bubblegum-edt-100ml_1.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600&auto=format&fit=crop",
   },
   {
     id: "4",
@@ -105,8 +105,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: false,
-    imageUrl: "https://img.fragrancenet.com/perfumes/DolceGabbana/DolceGabbanaDolceGabbanaLightBlue/DolceGabbanaDolceGabbanaLightBlue_L.jpg",
-    imageFallback: "https://www.sephora.com/productimages/sku/s1891629-main-zoom.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1583145638210-2130e5d081ec?q=80&w=600&auto=format&fit=crop",
   },
   {
     id: "5",
@@ -126,8 +126,8 @@ export const products: Product[] = [
     in_stock: true,
     featured: false,
     limited: false,
-    imageUrl: "https://img.fragrancenet.com/perfumes/Cacharel/CacharelYesIAm/CacharelYesIAm_L.jpg",
-    imageFallback: "https://images.thefragranceshop.co.uk/catalog/product/y/e/yes-i-am-cacharel-edp-50ml.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=600&auto=format&fit=crop",
   },
   {
     id: "6",
@@ -147,7 +147,7 @@ export const products: Product[] = [
     in_stock: true,
     featured: true,
     limited: true,
-    imageUrl: "https://img.fragrancenet.com/perfumes/Armaf/ArmafOdysseyMandarinSkyElixir/ArmafOdysseyMandarinSkyElixir_L.jpg",
-    imageFallback: "https://www.eliteperfumes.cl/cdn/shop/files/ODYSSEY-MANDARIN-SKY-ELIXIR-EDP-100ML.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1595532542520-22c608f5d023?q=80&w=600&auto=format&fit=crop",
+    imageFallback: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop",
   }
 ];

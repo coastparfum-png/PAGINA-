@@ -75,11 +75,8 @@ export function Products() {
         </div>
 
         {/* Product Grid */}
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={filter}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.25rem]"
-          >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.25rem]">
+          <AnimatePresence mode="popLayout">
             {filtered.map((product, i) => (
               <motion.div
                 key={product.id}
@@ -96,8 +93,8 @@ export function Products() {
                 />
               </motion.div>
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </motion.div>
 
         {filtered.length === 0 && (
           <div className="text-center py-16">
