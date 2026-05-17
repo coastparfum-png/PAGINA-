@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Coast Parfum — E-commerce Premium 💎
 
-## Getting Started
+Sitio web oficial de **Coast Parfum**, perfumería de lujo en Concón, V Región, Chile.
 
-First, run the development server:
+## 🚀 Despliegue en Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este proyecto está listo para ser desplegado en Vercel.
+
+1. Haz push a tu repositorio de GitHub: `https://github.com/coastparfum-png/PAGINA-.git`
+2. Conecta el repositorio a un nuevo proyecto en [Vercel](https://vercel.com).
+3. Añade las siguientes variables de entorno en Vercel (`Settings > Environment Variables`):
+
+```env
+NEXT_PUBLIC_WHATSAPP_NUMBER=56964788533
+NEXT_PUBLIC_SITE_URL=https://www.coast.parfum.cl
+NEXT_PUBLIC_INSTAGRAM=coast.parfum
+NEXT_PUBLIC_EMAIL=coastparfum@gmail.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. El despliegue automático configurará las cabeceras de seguridad definidas en `vercel.json`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Datos y Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Actualmente, el sitio funciona como un **MVP estático**. Los productos se cargan desde `lib/products.ts`, lo que permite un rendimiento ultra rápido y no depende de bases de datos externas de momento.
 
-## Learn More
+### Pasos futuros para Supabase:
+Si deseas migrar a Supabase más adelante:
+1. Ve a `supabase/migrations/001_initial.sql` y ejecuta ese SQL en el editor SQL de tu panel de Supabase.
+2. Ejecuta `supabase/seed.sql` para poblar los productos iniciales.
+3. Añade tus credenciales en el archivo `.env.local` (y en Vercel):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Construido con Next.js 16, Tailwind CSS v4, Framer Motion y Next-Intl.*
