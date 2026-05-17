@@ -8,7 +8,7 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { LanguageToggle } from "@/components/LanguageToggle";
 
 export function Navbar() {
-  const t = useTranslations("navbar");
+  const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 

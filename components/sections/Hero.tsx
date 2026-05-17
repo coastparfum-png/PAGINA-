@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useState } from "react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { products } from "@/lib/products";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const [imgError, setImgError] = useState(false);
   
   // We'll use CK One Shock for the featured hero image as it has a nice shape
   const featuredProduct = products.find(p => p.slug === "ck-one-shock") || products[0];
@@ -167,12 +169,13 @@ export function Hero() {
             style={{ filter: "drop-shadow(0 0 40px rgba(201,168,76,0.2))" }}
           >
             <Image
-              src={featuredProduct.imageUrl}
+              src={imgError ? featuredProduct.imageFallback : featuredProduct.imageUrl}
               alt={featuredProduct.name}
               fill
               className="object-contain object-center lg:object-right"
               priority
               unoptimized
+              onError={() => setImgError(true)}
             />
           </motion.div>
         </motion.div>
