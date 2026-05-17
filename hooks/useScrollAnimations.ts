@@ -13,21 +13,27 @@ export function useScrollAnimations() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // 1. General Fade Up
+    // 1. General Fade Up (Individual triggers to avoid getting stuck at opacity 0)
     const fadeElements = document.querySelectorAll("[data-animate='fade-up']");
-    if (fadeElements.length > 0) {
-      gsap.from(fadeElements, {
-        y: 50,
+    fadeElements.forEach((el) => {
+      // Prevent double animation if it already ran
+      if (el.classList.contains("animated-fade-up")) return;
+      
+      gsap.from(el, {
+        y: 30,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.12,
+        duration: 0.6,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: fadeElements[0],
-          start: "top 85%",
+          trigger: el,
+          start: "top 92%",
+          toggleActions: "play none none none",
+          onComplete: () => {
+            el.classList.add("animated-fade-up");
+          }
         },
       });
-    }
+    });
 
     // 2. Animated Counters (About Section)
     const counters = document.querySelectorAll("[data-counter]");

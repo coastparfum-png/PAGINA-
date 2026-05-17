@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/ui/ProductCard";
@@ -75,26 +74,20 @@ export function Products() {
         </div>
 
         {/* Product Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.25rem]">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((product, i) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProductCard
-                  product={product}
-                  t={cardTranslations}
-                  index={i}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.25rem]">
+          {filtered.map((product, i) => (
+            <div
+              key={product.id}
+              className="transition-all duration-300 transform opacity-100 scale-100"
+            >
+              <ProductCard
+                product={product}
+                t={cardTranslations}
+                index={i}
+              />
+            </div>
+          ))}
+        </div>
 
         {filtered.length === 0 && (
           <div className="text-center py-16">

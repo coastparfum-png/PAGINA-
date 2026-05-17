@@ -43,15 +43,9 @@ export function ProductCard({ product, t, index }: ProductCardProps) {
   };
 
   return (
-    <motion.div
+    <div
       data-animate="fade-up"
-      className="group relative bg-[var(--bg-card)] border border-[var(--border)] rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-[6px] hover:border-[var(--border-hover)] flex flex-col h-full"
-      style={{
-        boxShadow: "0 0 0 1px rgba(201,168,76,0)",
-      }}
-      whileHover={{
-        boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.15)",
-      }}
+      className="group relative bg-[var(--bg-card)] border border-[var(--border)] rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-[6px] hover:border-[var(--border-hover)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6),_0_0_0_1px_rgba(201,168,76,0.15)] flex flex-col h-full"
     >
       {/* Image Zone */}
       <div 
@@ -153,6 +147,6 @@ export function ProductCard({ product, t, index }: ProductCardProps) {
         </svg>
         CONSULTAR POR WHATSAPP
       </button>
-    </motion.div>
+    </div>
   );
 }
