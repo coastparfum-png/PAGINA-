@@ -31,26 +31,6 @@ export function Logo({
   const color = colors[variant];
   const { svg: svgSize, textScale } = dimensions[size];
 
-  // Circle path animation
-  const circleVariants: Variants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: { duration: 1, ease: "easeInOut" },
-    },
-  };
-
-  // Internal paths animation
-  const pathVariants: Variants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: { duration: 1.2, delay: 0.3, ease: "easeOut" },
-    },
-  };
-
   // Text animation
   const textVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
@@ -67,70 +47,19 @@ export function Logo({
         size === "xl" ? "flex-col items-center gap-6" : "items-center gap-4"
       }`}
     >
-      <motion.svg
-        width={svgSize}
-        height={svgSize}
-        viewBox="0 0 120 120"
-        fill="none"
-        initial={animated ? "hidden" : "visible"}
-        animate="visible"
+      <motion.div
+        initial={animated ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative overflow-hidden rounded-full flex items-center justify-center border border-[#C9A84C]/30 bg-neutral-900"
+        style={{ width: svgSize, height: svgSize }}
       >
-        {/* Outer Circle */}
-        <motion.circle
-          cx="60"
-          cy="60"
-          r="56"
-          stroke={color}
-          strokeWidth="1.5"
-          fill="transparent"
-          variants={circleVariants}
+        <img
+          src="/logo.jfif"
+          alt="Coast Parfum"
+          className="w-full h-full object-cover"
         />
-
-        {/* Monogram C (left) */}
-        <motion.path
-          d="M 65 38 C 45 38 32 50 32 60 C 32 70 45 82 65 82"
-          stroke={color}
-          strokeWidth="6"
-          strokeLinecap="round"
-          variants={pathVariants}
-        />
-
-        {/* Monogram P (right overlap) */}
-        <motion.path
-          d="M 45 38 L 45 85"
-          stroke={color}
-          strokeWidth="5"
-          strokeLinecap="round"
-          variants={pathVariants}
-        />
-        <motion.path
-          d="M 45 38 C 75 38 82 48 82 56 C 82 64 75 70 45 70"
-          stroke={color}
-          strokeWidth="5"
-          strokeLinecap="round"
-          variants={pathVariants}
-        />
-
-        {/* Small Waves (bottom inside) */}
-        <motion.path
-          d="M 35 90 Q 45 84 55 90 T 75 90 T 85 90"
-          stroke={color}
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinecap="round"
-          variants={pathVariants}
-          strokeOpacity={0.8}
-        />
-        <motion.path
-          d="M 40 96 Q 50 90 60 96 T 80 96"
-          stroke={color}
-          strokeWidth="1"
-          fill="none"
-          strokeLinecap="round"
-          variants={pathVariants}
-          strokeOpacity={0.5}
-        />
-      </motion.svg>
+      </motion.div>
 
       {showText && (
         <motion.div
